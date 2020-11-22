@@ -1,11 +1,12 @@
 import React from 'react';
+import Navbar from './hoc/navbar/Navbar'
 
 
 function App() {
   return (
-    <div className="App">
-      hi
-    </div>
+    <>
+      <Navbar />
+    </>
   );
 }
 
