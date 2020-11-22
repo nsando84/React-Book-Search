@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/nsando84/react-book-search/issues"
   },
-  "homepage": "https://github.com/nsando84/react-book-search#readme"
+  "homepage": "https://github.com/nsando84/react-book-search#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
