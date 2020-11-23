@@ -1,7 +1,9 @@
 import React from 'react';
+import axios from 'axios'
 
 const BookInfo = (props) => {
  
+    
     return (
         <div style={bigBookWrapper}>
         {props.bookInfo.map((ele, index) => {
@@ -22,7 +24,22 @@ const BookInfo = (props) => {
                             window.open(infoLink) 
                             }}
                         >View</button>
-                        <button style={bookButton}>Save</button>
+                        <button 
+                            style={bookButton}
+                            onClick={() => {
+                                let bookInfo = {
+                                    id: ele.volumeInfo.industryIdentifiers[0].identifier,
+                                    authors,
+                                    description,
+                                    imageLinks: imageLinks.smallThumbnail,
+                                    infoLink,
+                                    title
+                                }
+                                axios.post('http://localhost:5000/api/books', bookInfo)
+                                .then(response => console.log(response))
+                                .catch(error => console.log(error))
+                            }}
+                        >Save</button>
                     </section>
                     </div>
                     <div style={bookInfoBottom}>
