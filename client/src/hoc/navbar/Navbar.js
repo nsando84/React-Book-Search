@@ -1,11 +1,17 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom'
 
 const Navbar = () => {
     return (
         <nav style={navbarStyle}>
             <p style={navWordsLogo}>Google Books</p>
-            <p style={navWords}>Search</p>
-            <p style={navWords}>Saved</p>
+            <NavLink activeClassName="active" to='/search'>
+                <p style={navWords} className='navLinks'>Search</p>
+            </NavLink>
+            <NavLink activeClassName="active" to='/saved' >
+                <p style={navWords} className='navLinks'>Saved</p>
+            </NavLink>
+            
         </nav>
     )
 }

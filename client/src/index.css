@@ -14,3 +14,12 @@ a {
   text-decoration: none;
   color: unset;
 }
+
+.active {
+  text-decoration: underline;
+  color: blue
+}
+
+.navLinks:hover {
+  color: purple
+}

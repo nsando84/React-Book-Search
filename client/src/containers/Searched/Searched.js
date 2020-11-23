@@ -18,23 +18,16 @@ const Search = () => {
     const searchHandler = () => {
         if (searchState.length === 0) {
             setErrorHandler('Input field empty.')
+        } else {
+            axios.get(`https://www.googleapis.com/books/v1/volumes?q=${searchState}`)
+                .then(response => {
+                    setBookInfo(response.data.items)
+                })
+                .catch(error => {
+                    console.log(error)
+                })
+            setSearchState('')
         }
-        axios.get(`https://www.googleapis.com/books/v1/volumes?q=${searchState}`)
-            .then(response => {
-                setBookInfo(
-                    response.data.items
-                    
-                    // author: response.data.items[0].volumeInfo.authors,
-                    // title: response.data.items[0].volumeInfo.title,
-                    // description: response.data.items[0].volumeInfo.description,
-                    // link: response.data.items[0].volumeInfo.infoLink,
-                    // imageLinks: response.data.items[0].volumeInfo.imageLinks.smallThumbnail,
-                )
-            })
-            .catch(error => {
-                console.log(error)
-            })
-        setSearchState('')
     }
 
     return (
