@@ -43,16 +43,12 @@ const BookInfo = (props) => {
                                         }
                                         axios.post('http://localhost:5000/api/books', bookInfo)
                                         .then(response => {
-                                            if (response.data === 'Book already saved.') {        
-                                                    document.getElementById(ele.volumeInfo.industryIdentifiers[0].identifier).style.display='block'
-                                                setTimeout(() => {
-                                                    document.getElementById(ele.volumeInfo.industryIdentifiers[0].identifier).style.display='none'
-                                                }, 2000)
+                                            if (response.data === 'Book already saved.') {  
+                                                document.getElementById(ele.volumeInfo.industryIdentifiers[0].identifier+1).style.display='none'      
+                                                document.getElementById(ele.volumeInfo.industryIdentifiers[0].identifier).style.display='block'                      
                                             } else {
-                                                    document.getElementById(ele.volumeInfo.industryIdentifiers[0].identifier+1).style.display='block'
-                                                setTimeout(() => {
-                                                    document.getElementById(ele.volumeInfo.industryIdentifiers[0].identifier+1).style.display='none'
-                                                }, 2000)
+                                                document.getElementById(ele.volumeInfo.industryIdentifiers[0].identifier+1).style.display='block'
+                                                
                                             }
                                         })
                                         .catch((error) => console.log(error))
