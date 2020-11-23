@@ -20,7 +20,7 @@
 
  #### Click  [HERE](https://thereactbooksearch.herokuapp.com/)  to try. (Heroku deployed) 
  
- #### Minute long demo ---- [Right Here](https://drive.google.com/file/d/1b4y7CeQteqY743mWuUE70EmCCkhwXVWx/view)
+ #### Short video demo ---- [Right Here](https://drive.google.com/file/d/1SxPSahNR8kFsLxe-rVxy432drINzdb7B/view)
  
   #### Features in this application:
   
