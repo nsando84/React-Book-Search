@@ -18,7 +18,7 @@ router.post('/books', async (req, res) => {
         const bookCheck = await Book.find({bookid: req.body.id})
         
         if (!bookCheck.length <= 0) {
-            console.log('already added..')
+            res.status(200).send('Book already saved.')
         } else {
 
                 const addedBook = new Book({
@@ -31,8 +31,8 @@ router.post('/books', async (req, res) => {
             })
 
             addedBook.save()
-            .then((response) => res.sendStatus(200).send(response))
-            .then(error => res.sendStatus(500).send(error))
+            .then((response) => res.status(200).send(response.data))
+            .catch(error => res.status(500).send(error))
         }
 })
 

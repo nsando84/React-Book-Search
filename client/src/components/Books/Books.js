@@ -2,11 +2,12 @@ import React from 'react';
 import axios from 'axios'
 
 const BookInfo = (props) => {
- 
+    
     
     return (
         <div style={bigBookWrapper}>
         {props.bookInfo.map((ele, index) => {
+            
             let { authors, description, imageLinks, infoLink, title } = ele.volumeInfo  
             return (    
                 <div style={bookWrapper} key={index}>
@@ -36,10 +37,18 @@ const BookInfo = (props) => {
                                     title
                                 }
                                 axios.post('http://localhost:5000/api/books', bookInfo)
-                                .then(response => console.log(response))
-                                .catch(error => console.log(error))
+                                .then(response => {
+                                    if (response.data === 'Book already saved.') {        
+                                            document.getElementById(ele.volumeInfo.industryIdentifiers[0].identifier).style.display='block'
+                                        setTimeout(() => {
+                                            document.getElementById(ele.volumeInfo.industryIdentifiers[0].identifier).style.display='none'
+                                        }, 2000)
+                                    }
+                                })
+                                .catch((error) => console.log(error))
                             }}
                         >Save</button>
+                        <span id={ele.volumeInfo.industryIdentifiers[0].identifier} style={errorHandler}>Book already saved</span>
                     </section>
                     </div>
                     <div style={bookInfoBottom}>
@@ -96,5 +105,11 @@ const bookInfoTop = {
     justifyContent: 'space-between'
 }
 
+const errorHandler = {
+    textAlign: 'right', 
+    color: 'red', 
+    fontSize: '12px',
+    display: 'none'
+}
 
 export default BookInfo
