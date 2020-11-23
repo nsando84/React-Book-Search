@@ -2,15 +2,14 @@ const router = require('express').Router()
 const Book = require('../models/Books')
 
 router.get('/books', async (req, res) => {
-    
     try {
-
-
+        const savedBooks = await Book.find()   
+        res.status(200).send(savedBooks)
+        
     } catch (error) {
-        res.sendStatus(500).send(error)
+        res.send(400).send(error)
     }
-
-
+    
 })
 
 router.post('/books', async (req, res) => {
@@ -20,7 +19,6 @@ router.post('/books', async (req, res) => {
         if (!bookCheck.length <= 0) {
             res.status(200).send('Book already saved.')
         } else {
-
                 const addedBook = new Book({
                 bookid: req.body.id,
                 authors: req.body.authors[0],
