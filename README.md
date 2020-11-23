@@ -14,7 +14,7 @@
 
   
 
-  ### The task was to create a book search using Google Books API that will allow user to manage book interests.
+  ### The task was to create a Book Search Application using Google Books API that will allow a user to manage their book interests.
   
   ### MERN - MongoDB, Express, React, Node, GoogleAPI. 
 
@@ -25,7 +25,7 @@
   #### Features in this application:
   
   - Users can search for books they have interest in.
-  - Users can view basic information on the books and well as a link for more information.
+  - Users can view basic information on books or click on view to see more detailed information.
   - Users can save books to the database for later viewing.
   - Users can remove books from the database.
   - Validation on input to reduce errors.
@@ -60,7 +60,7 @@
 
 ### **Usage**
 
-#### This application allows users to manage books interests. 
+#### This application allows users to manage book interests. 
 
 ![Screen Shot 2020-11-22 at 10 59 37 PM](https://user-images.githubusercontent.com/67135603/99935929-b8546080-2d16-11eb-99a2-36ec62f9cc48.png)
 
