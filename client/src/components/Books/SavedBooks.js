@@ -4,17 +4,17 @@ import axios from 'axios'
 const SavedBook = () => {
 
     const [ savedBooks, setSavedBooks ] = useState('')
-
+ 
+    
     useEffect(() => {
         axios.get('http://localhost:5000/api/books')
         .then(response => {
             setSavedBooks(response.data)
+         
             
         })
         .catch(error => console.log(error))
     }, [])
-
-    console.log(savedBooks.length)
     
 
     return (
@@ -24,7 +24,7 @@ const SavedBook = () => {
                const { _id, bookid, authors, description, image, link, title } = book
 
                 return (    
-                    <div style={bookWrapper} key={bookid}>
+                    <div style={bookWrapper} key={bookid} id={bookid}>
                         <div style={bookInfoTop}>
                             <section>
                                 <h3>{title}</h3>
@@ -37,7 +37,16 @@ const SavedBook = () => {
                                     window.open(link) 
                                 }}
                                 >View</button>
-                            <button style={bookButton}>Delete</button>
+                            <button 
+                                style={bookButton}
+                                onClick={() => {
+                                    axios.delete(`http://localhost:5000/api/books/${_id}`)
+                                        .then(() => {
+                                            document.getElementById(bookid).remove()
+                                        })
+                                        .catch(error => console.log(error))
+                                }}
+                                >Delete</button>
                             
                         </section>
                         </div>

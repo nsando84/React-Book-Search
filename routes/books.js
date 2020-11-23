@@ -35,15 +35,13 @@ router.post('/books', async (req, res) => {
 })
 
 router.delete('/books/:id', async (req, res) => {
-    console.log(req)
     try {
-
-
+        const deletedBook = await Book.findByIdAndDelete(req.params.id)
+        res.status(200).send(deletedBook)
     } catch (error) {
-        res.sendStatus(500).send(error)
+        res.status(500).send(error)
     }
-
-
 })
+
 
 module.exports = router
