@@ -15,7 +15,7 @@ const Title = () => {
 
 const titleBox = {
     margin: 'auto',
-    border: '1px solid black',
+    border: '1px solid grey',
     maxWidth: '800px',
     marginTop: '30px',
     height: '175px',

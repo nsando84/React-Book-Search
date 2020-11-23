@@ -24,7 +24,6 @@ const Search = () => {
                 setBookInfo({
                     author: response.data.items[0].volumeInfo.authors,
                     title: response.data.items[0].volumeInfo.title,
-                    categories: response.data.items[0].volumeInfo.categories,
                     description: response.data.items[0].volumeInfo.description,
                     link: response.data.items[0].volumeInfo.infoLink,
                     imageLinks: response.data.items[0].volumeInfo.imageLinks.smallThumbnail,
@@ -62,7 +61,7 @@ const Search = () => {
 
 const searchWrapper = {
     margin: 'auto',
-    border: '1px solid black',
+    border: '1px solid grey',
     maxWidth: '800px',
     marginTop: '30px',
     height: '130px',
