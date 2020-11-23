@@ -41,7 +41,7 @@ const BookInfo = (props) => {
                                             infoLink,
                                             title
                                         }
-                                        axios.post('http://localhost:5000/api/books', bookInfo)
+                                        axios.post('/api/books', bookInfo)
                                         .then(response => {
                                             if (response.data === 'Book already saved.') {  
                                                 document.getElementById(ele.volumeInfo.industryIdentifiers[0].identifier+1).style.display='none'      

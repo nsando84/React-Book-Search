@@ -7,7 +7,7 @@ const SavedBook = () => {
  
     
     useEffect(() => {
-        axios.get('http://localhost:5000/api/books')
+        axios.get('/api/books')
         .then(response => {
             setSavedBooks(response.data)
          
@@ -40,7 +40,7 @@ const SavedBook = () => {
                             <button 
                                 style={bookButton}
                                 onClick={() => {
-                                    axios.delete(`http://localhost:5000/api/books/${_id}`)
+                                    axios.delete(`/api/books/${_id}`)
                                         .then(() => {
                                             document.getElementById(bookid).remove()
                                         })
